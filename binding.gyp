@@ -1,6 +1,12 @@
 {
   "targets": [
     { 
+      "target_name": "genSignal",
+      "include_dirs": [ "<(module_root_dir)/server/app/utils/cpp" ],
+      "sources": [ "<(module_root_dir)/server/app/utils/cpp/genSignal.cpp" ],
+      "link_settings": { "libraries": [ "-lvisa64" ], "library_dirs" : [ "<(module_root_dir)/server/app/utils/cpp" ] }
+    },
+    { 
       "target_name": "getPower",
       "include_dirs": [ "<(module_root_dir)/server/app/utils/cpp" ],
       "sources": [ "<(module_root_dir)/server/app/utils/cpp/getPower.cpp" ],

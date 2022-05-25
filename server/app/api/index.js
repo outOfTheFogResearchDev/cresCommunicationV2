@@ -138,16 +138,8 @@ if (process.env.TYPE !== 'exe') {
     inOperation();
     await setAnalyzer(+frequency);
     await moku.setPoint(+frequency, +amplitude, +phase);
-    if (+frequency < 132.5 || +frequency > 192.4) {
-      await telnet.write(`mp 0 1 0 `);
-      await telnet.write(`mp 0 2 0 `);
-      await telnet.write(`mp 0 3 0 `);
-      await telnet.write(`ac1 1`);
-      await telnet.write(`pc1 1`);
-    } else {
-      await ms(10);
-      await applyTable('fine');
-    }
+    await ms(10);
+    await applyTable('fine');
     await ms(10);
     const power = await getPower();
     await resetAnalyzer();
